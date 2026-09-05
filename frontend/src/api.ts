@@ -12,12 +12,10 @@ const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "http://localhost:800
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const email = localStorage.getItem("ds_email");
   const password = localStorage.getItem("ds_password");
-  const headers: Record<string, string> = {
-    "Content-Type": "application/json",
-    ...init?.headers,
-  };
+  const headers = new Headers(init?.headers as HeadersInit);
+  headers.set("Content-Type", "application/json");
   if (email && password) {
-    headers["Authorization"] = `Basic ${btoa(`${email}:${password}`)}`;
+    headers.set("Authorization", `Basic ${btoa(`${email}:${password}`)}`);
   }
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...init,
