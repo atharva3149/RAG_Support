@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: datastraw-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: minimax/minimax-m3:free
+      - key: OPENROUTER_BASE_URL
+        value: https://openrouter.ai/api/v1
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: SIMILARITY_THRESHOLD
+        value: "0.35"
+      - key: SIMILARITY_MIN_MARGIN
+        value: "0.02"
+      - key: SIMILARITY_STRONG_MATCH_THRESHOLD
+        value: "0.55"
+      - key: AUTH_USER_EMAIL
+        sync: false
+      - key: AUTH_USER_PASSWORD
+        sync: false
+      - key: AUTH_TOKEN_SECRET
+        sync: false
