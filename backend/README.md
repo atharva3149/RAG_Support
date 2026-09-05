@@ -22,7 +22,7 @@ FastAPI backend for Part 1 of the Datastraw assessment.
 Create `backend/.env` from `backend/.env.example`.
 
 ```dotenv
-DATABASE_URL=postgresql://postgres:password@localhost:5432/newassessment
+DATABASE_URL=
 OPENROUTER_API_KEY=
 OPENROUTER_MODEL=minimax/minimax-m3:free
 OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
