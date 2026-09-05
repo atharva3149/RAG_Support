@@ -1,0 +1,1 @@
+"""Database access helpers for tenant-scoped entities."""
